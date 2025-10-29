@@ -115,3 +115,25 @@ examplesディレクトリに更に多くのサンプルがあります。
 - `ドキュメント <https://discordpy.readthedocs.io/ja/latest/index.html>`_
 - `公式Discordサーバー <https://discord.gg/nXzj3dg>`_
 - `Discord API <https://discord.gg/discord-api>`_
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = '!';
+
+client.once('ready', () => {
+    console.log('Ready!');
+    });
+
+    client.on('message', message => {
+        if (message.author.bot) return;
+            if (!message.content.startsWith(prefix)) return;
+
+                const args = message.content.slice(prefix.length).split(/ +/);
+                    const command = args.shift().toLowerCase();
+
+                        if (command === 'ping') {
+                                message.channel.send('Pong!');
+                                    }
+                                    });
+
+                                    client.login('your-token-here');
+                                    
